@@ -242,21 +242,46 @@ const Home = () => {
               variants={slideInRight}
               transition={{ delay: 0.5 }}
             >
-              {/* Logo PinkSale simplificado */}
+              {/* Hero Image mejorada */}
               <motion.div
                 className="relative w-full max-w-lg"
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.8, duration: 0.8 }}
               >
-                <div className="absolute -inset-8 bg-gradient-to-r from-pink-500 to-purple-600 rounded-3xl opacity-30 blur-3xl"></div>
-                <div className="relative bg-white/5 p-10 rounded-3xl border-2 border-gray-700 backdrop-blur-md shadow-[0_25px_50px_-12px_rgba(139,92,246,0.25)] flex justify-center">
+                <div className="absolute -inset-8 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 rounded-3xl opacity-40 blur-3xl animate-pulse"></div>
+                <div className="relative bg-gradient-to-br from-gray-900/80 to-purple-900/60 p-8 rounded-3xl border-2 border-purple-500/30 backdrop-blur-md shadow-[0_25px_50px_-12px_rgba(139,92,246,0.4)] overflow-hidden">
+                  {/* Efectos de partículas en la imagen */}
+                  <div className="absolute inset-0 overflow-hidden">
+                    {[...Array(20)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-2 h-2 bg-purple-400 rounded-full opacity-30"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                        }}
+                        animate={{
+                          y: [0, -20, 0],
+                          opacity: [0.3, 0.8, 0.3],
+                          scale: [1, 1.5, 1]
+                        }}
+                        transition={{
+                          duration: Math.random() * 3 + 2,
+                          repeat: Infinity,
+                          delay: Math.random() * 2
+                        }}
+                      />
+                    ))}
+                  </div>
                   <img 
-                    src="https://photos.pinksale.finance/file/pinksale-logo-upload/1753414649657-76336eccd5b7e6575e0d48b7a1bb8fdb.png" 
-                    className="w-full h-auto max-w-md"
-                    alt="PinkSale Logo"
+                    src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                    className="w-full h-auto max-w-md rounded-2xl shadow-2xl relative z-10"
+                    alt="Crypto Trading Platform"
                     loading="lazy"
                   />
+                  {/* Overlay con efecto holográfico */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 via-transparent to-blue-500/20 rounded-2xl"></div>
                 </div>
               </motion.div>
             </motion.div>
@@ -299,7 +324,10 @@ const Home = () => {
                 whileHover={{ y: -8, scale: 1.1 }}
               >
                 <img 
-                  src={`/images/client-${item}.png`} 
+                  src={`https://images.unsplash.com/photo-${
+                    ['1639762681485-074b7f938ba0', '1621761191319-c6fb62004040', '1640340434855-6084b1f4901c', 
+                     '1640161704729-cca31d091927', '1621761191319-c6fb62004040', '1640340434855-6084b1f4901c'][item-1]
+                  }?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=80&q=80`}
                   className="h-12 opacity-80 hover:opacity-100 transition-all duration-300" 
                   alt={`Client logo ${item}`}
                   loading="lazy"
@@ -355,7 +383,8 @@ const Home = () => {
                 ),
                 title: "Comprehensive Analytics",
                 description: "Real-time dashboards with deep market insights and performance metrics for informed decision making.",
-                stats: "50+ metrics tracked"
+                stats: "50+ metrics tracked",
+                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
                 icon: (
@@ -365,7 +394,8 @@ const Home = () => {
                 ),
                 title: "Strategic Growth",
                 description: "Holistic token growth strategies combining market making, exchange listings, and investor outreach.",
-                stats: "3-5x average volume increase"
+                stats: "3-5x average volume increase",
+                image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
                 icon: (
@@ -375,7 +405,8 @@ const Home = () => {
                 ),
                 title: "Risk Management",
                 description: "Advanced safeguards against volatility and market manipulation to protect your token's value.",
-                stats: "24/7 monitoring"
+                stats: "24/7 monitoring",
+                image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
                 icon: (
@@ -385,7 +416,8 @@ const Home = () => {
                 ),
                 title: "Multi-Exchange Coverage",
                 description: "Seamless liquidity provision across all major exchanges with unified management.",
-                stats: "15+ exchanges supported"
+                stats: "15+ exchanges supported",
+                image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
                 icon: (
@@ -395,26 +427,42 @@ const Home = () => {
                 ),
                 title: "Regulatory Compliance",
                 description: "Fully compliant solutions adhering to global financial regulations and best practices.",
-                stats: "10+ jurisdictions"
+                stats: "10+ jurisdictions",
+                image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               }
             ].map((feature, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-900/50 p-10 rounded-2xl border-2 border-gray-800 hover:border-purple-500/30 transition-all duration-300 group"
+                className="bg-gray-900/50 p-10 rounded-2xl border-2 border-gray-800 hover:border-purple-500/30 transition-all duration-300 group relative overflow-hidden"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ y: -15, boxShadow: "0 20px 40px -10px rgba(124, 58, 237, 0.2)" }}
               >
+                {/* Imagen de fondo sutil */}
+                {feature.image && (
+                  <div className="absolute inset-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
+                    <img 
+                      src={feature.image} 
+                      alt="" 
+                      className="w-full h-full object-cover rounded-2xl"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+                
+                {/* Efecto de brillo en hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                
                 <div className="mb-8">
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gray-800 group-hover:bg-purple-900/30 transition-all duration-300">
                     {feature.icon}
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{feature.title}</h3>
-                <p className="text-xl text-gray-400 mb-6">{feature.description}</p>
-                <p className="text-lg font-bold text-purple-400">{feature.stats}</p>
+                <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{feature.title}</h3>
+                <p className="text-xl text-gray-400 mb-6 relative z-10">{feature.description}</p>
+                <p className="text-lg font-bold text-purple-400 relative z-10">{feature.stats}</p>
               </motion.div>
             ))}
           </div>
@@ -481,14 +529,24 @@ const Home = () => {
             
             <motion.div variants={slideInRight} className="relative">
               <div className="absolute -inset-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-3xl opacity-30 blur-2xl"></div>
-              <div className="relative bg-gray-800 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-2xl p-8">
+              <div className="relative bg-gray-800 rounded-2xl overflow-hidden border-2 border-gray-700 shadow-2xl p-8 backdrop-blur-sm">
+                {/* Imagen de fondo para el dashboard */}
+                <div className="absolute inset-0 opacity-10">
+                  <img 
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                    alt="" 
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                
                 <div className="flex justify-between items-center mb-10">
-                  <h3 className="text-2xl font-bold text-white">Performance Metrics</h3>
+                  <h3 className="text-2xl font-bold text-white relative z-10">Performance Metrics</h3>
                   <span className="px-4 py-2 bg-green-900/50 text-green-400 rounded-full text-sm font-bold">LIVE DATA</span>
                 </div>
                 
                 <div className="grid grid-cols-2 gap-8 mb-10">
-                  <div className="bg-gray-900/50 p-6 rounded-xl border-2 border-gray-700">
+                  <div className="bg-gray-900/70 p-6 rounded-xl border-2 border-gray-700 backdrop-blur-sm relative z-10">
                     <div className="text-gray-400 text-lg mb-2">24h Volume</div>
                     <div className="text-3xl font-bold text-white">$42.8M</div>
                     <div className="text-green-400 text-sm flex items-center mt-2">
@@ -499,7 +557,7 @@ const Home = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gray-900/50 p-6 rounded-xl border-2 border-gray-700">
+                  <div className="bg-gray-900/70 p-6 rounded-xl border-2 border-gray-700 backdrop-blur-sm relative z-10">
                     <div className="text-gray-400 text-lg mb-2">Avg. Spread</div>
                     <div className="text-3xl font-bold text-white">0.12%</div>
                     <div className="text-green-400 text-sm flex items-center mt-2">
@@ -510,7 +568,7 @@ const Home = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gray-900/50 p-6 rounded-xl border-2 border-gray-700">
+                  <div className="bg-gray-900/70 p-6 rounded-xl border-2 border-gray-700 backdrop-blur-sm relative z-10">
                     <div className="text-gray-400 text-lg mb-2">Order Depth</div>
                     <div className="text-3xl font-bold text-white">$5.2M</div>
                     <div className="text-green-400 text-sm flex items-center mt-2">
@@ -521,7 +579,7 @@ const Home = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-gray-900/50 p-6 rounded-xl border-2 border-gray-700">
+                  <div className="bg-gray-900/70 p-6 rounded-xl border-2 border-gray-700 backdrop-blur-sm relative z-10">
                     <div className="text-gray-400 text-lg mb-2">Price Stability</div>
                     <div className="text-3xl font-bold text-white">98.4%</div>
                     <div className="text-green-400 text-sm flex items-center mt-2">
@@ -533,7 +591,7 @@ const Home = () => {
                   </div>
                 </div>
                 
-                <div className="bg-gray-900 rounded-xl p-6 border-2 border-gray-700">
+                <div className="bg-gray-900/80 rounded-xl p-6 border-2 border-gray-700 backdrop-blur-sm relative z-10">
                   <div className="flex items-start">
                     <div className="flex-shrink-0 mt-2">
                       <svg className="w-8 h-8 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
@@ -579,46 +637,49 @@ const Home = () => {
                 quote: "FalcoX's market making solution increased our daily volume by 5x within the first month. Their team is incredibly professional and responsive.",
                 name: "Sarah Johnson",
                 title: "CEO, Blockchain Startup",
-                avatar: "/images/avatar-1.jpg"
+                avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
               },
               {
                 quote: "The liquidity and price stability improvements were immediate and significant. We've been able to attract institutional investors thanks to FalcoX.",
                 name: "Michael Chen",
                 title: "CTO, DeFi Protocol",
-                avatar: "/images/avatar-2.jpg"
+                avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
               },
               {
                 quote: "As a project with limited crypto experience, FalcoX guided us through every step. Their analytics dashboard gives us complete transparency.",
                 name: "David Rodriguez",
                 title: "Founder, NFT Platform",
-                avatar: "/images/avatar-3.jpg"
+                avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150&q=80"
               }
             ].map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="bg-gray-800/50 p-10 rounded-2xl border-2 border-gray-700 hover:border-purple-500/30 transition-all duration-300"
+                className="bg-gray-800/50 p-10 rounded-2xl border-2 border-gray-700 hover:border-purple-500/30 transition-all duration-300 relative overflow-hidden group"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 whileHover={{ y: -10 }}
               >
+                {/* Efecto de brillo sutil */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
+                
                 <div className="mb-8">
                   <svg className="w-10 h-10 text-purple-500 opacity-50" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <p className="text-xl text-gray-300 mb-8 italic">"{testimonial.quote}"</p>
+                <p className="text-xl text-gray-300 mb-8 italic relative z-10">"{testimonial.quote}"</p>
                 <div className="flex items-center">
                   <img 
                     src={testimonial.avatar} 
-                    className="w-16 h-16 rounded-full border-2 border-purple-500/30 mr-6" 
+                    className="w-16 h-16 rounded-full border-2 border-purple-500/30 mr-6 object-cover" 
                     alt={testimonial.name}
                     loading="lazy"
                   />
                   <div>
-                    <h4 className="text-xl font-bold text-white">{testimonial.name}</h4>
-                    <p className="text-gray-400 text-lg">{testimonial.title}</p>
+                    <h4 className="text-xl font-bold text-white relative z-10">{testimonial.name}</h4>
+                    <p className="text-gray-400 text-lg relative z-10">{testimonial.title}</p>
                   </div>
                 </div>
               </motion.div>
@@ -630,7 +691,12 @@ const Home = () => {
       {/* Sección CTA Final */}
       <section className="py-24 bg-gradient-to-br from-purple-900/40 to-gray-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/grid-pattern.svg')] bg-center"></div>
+          <img 
+            src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+            alt="" 
+            className="w-full h-full object-cover"
+            loading="lazy"
+          />
         </div>
         
         <div className="container mx-auto px-4 relative">
