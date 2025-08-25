@@ -92,8 +92,8 @@ const Navbar = () => {
       </motion.div>
 
       <div className="flex justify-between items-center h-[56px] lg:h-[80px] xl:h-[80px] relative z-10">
-        {/* Left side: Logo */}
-        <div className="flex items-center">
+        {/* Left side: Logo y Links */}
+        <div className="flex items-center gap-5">
           <NavLink to="/" className="w-12 sm:w-[220px] relative group">
             <motion.div
               whileHover={{ scale: 1.08 }}
@@ -143,12 +143,9 @@ const Navbar = () => {
               </motion.div>
             </motion.div>
           </NavLink>
-        </div>
-
-        {/* Center: Navigation Links */}
-        <div className="flex-1 flex justify-center">
+          
           <motion.div 
-            className="flex space-x-8 lg:space-x-12"
+            className="flex space-x-6"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
