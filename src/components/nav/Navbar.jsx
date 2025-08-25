@@ -152,98 +152,125 @@ const Navbar = () => {
           >
             <NavLink
               to="/"
-              className="text-sm font-semibold font-bold relative group overflow-hidden"
+              className="text-sm font-semibold font-bold relative group overflow-hidden px-4 py-2 rounded-lg transition-all duration-300"
             >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              />
+              <motion.div
+                className="absolute inset-0 border border-amber-400/20 rounded-lg opacity-0 group-hover:opacity-100 group-hover:border-amber-400/60 transition-all duration-300"
+                whileHover={{ 
+                  boxShadow: "0 0 20px rgba(251, 191, 36, 0.3)",
+                  borderColor: "rgba(251, 191, 36, 0.8)"
+                }}
+              />
               <motion.span 
-                className="text-gold hover:text-amber-300 transition-all duration-300 relative z-10"
+                className="text-gold hover:text-amber-200 transition-all duration-300 relative z-10 font-medium"
                 whileHover={{ y: -2, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 {t('board')}
-                {/* Línea de subrayado mejorada */}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 transition-all duration-500"
-                  whileHover={{ width: "100%" }}
-                />
-                {/* Efecto de brillo en hover */}
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
               </motion.span>
+              {/* Efecto de brillo mejorado */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.8 }}
+              />
             </NavLink>
             
             <NavLink
               to="/create-token"
-              className="text-sm font-semibold font-bold relative group overflow-hidden"
+              className="text-sm font-semibold font-bold relative group overflow-hidden px-4 py-2 rounded-lg transition-all duration-300"
             >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-yellow-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              />
+              <motion.div
+                className="absolute inset-0 border border-amber-400/20 rounded-lg opacity-0 group-hover:opacity-100 group-hover:border-amber-400/60 transition-all duration-300"
+                whileHover={{ 
+                  boxShadow: "0 0 20px rgba(251, 191, 36, 0.3)",
+                  borderColor: "rgba(251, 191, 36, 0.8)"
+                }}
+              />
               <motion.span 
-                className="text-gold hover:text-amber-300 transition-all duration-300 relative z-10"
+                className="text-gold hover:text-amber-200 transition-all duration-300 relative z-10 font-medium"
                 whileHover={{ y: -2, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 {t('createToken')}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 transition-all duration-500"
-                  whileHover={{ width: "100%" }}
-                />
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
               </motion.span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.8 }}
+              />
             </NavLink>
             
             {address == admin && (
               <NavLink
                 to="/admin-panel"
-                className="text-sm font-semibold font-bold relative group overflow-hidden"
+                className="text-sm font-semibold font-bold relative group overflow-hidden px-4 py-2 rounded-lg transition-all duration-300"
               >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  whileHover={{ scale: 1.05 }}
+                />
+                <motion.div
+                  className="absolute inset-0 border border-purple-400/20 rounded-lg opacity-0 group-hover:opacity-100 group-hover:border-purple-400/60 transition-all duration-300"
+                  whileHover={{ 
+                    boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)",
+                    borderColor: "rgba(168, 85, 247, 0.8)"
+                  }}
+                />
                 <motion.span 
-                  className="text-gold hover:text-amber-300 transition-all duration-300 relative z-10"
+                  className="text-gold hover:text-purple-200 transition-all duration-300 relative z-10 font-medium"
                   whileHover={{ y: -2, scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >
                   {t('Admin')}
-                  <motion.span 
-                    className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 transition-all duration-500"
-                    whileHover={{ width: "100%" }}
-                  />
-                  <motion.span
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.6 }}
-                  />
                 </motion.span>
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
+                  initial={{ x: "-100%" }}
+                  whileHover={{ x: "100%" }}
+                  transition={{ duration: 0.8 }}
+                />
               </NavLink>
             )}
             
             <NavLink
               to="#"
-              className="text-sm font-semibold font-bold relative group overflow-hidden"
+              className="text-sm font-semibold font-bold relative group overflow-hidden px-4 py-2 rounded-lg transition-all duration-300"
             >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-cyan-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              />
+              <motion.div
+                className="absolute inset-0 border border-blue-400/20 rounded-lg opacity-0 group-hover:opacity-100 group-hover:border-blue-400/60 transition-all duration-300"
+                whileHover={{ 
+                  boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
+                  borderColor: "rgba(59, 130, 246, 0.8)"
+                }}
+              />
               <motion.span 
-                className="text-gold hover:text-amber-300 transition-all duration-300 relative z-10"
+                className="text-gold hover:text-blue-200 transition-all duration-300 relative z-10 font-medium"
                 whileHover={{ y: -2, scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 {t('KYC')}
-                <motion.span 
-                  className="absolute -bottom-1 left-0 h-0.5 w-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 transition-all duration-500"
-                  whileHover={{ width: "100%" }}
-                />
-                <motion.span
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  initial={{ x: "-100%" }}
-                  whileHover={{ x: "100%" }}
-                  transition={{ duration: 0.6 }}
-                />
               </motion.span>
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-400/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"
+                initial={{ x: "-100%" }}
+                whileHover={{ x: "100%" }}
+                transition={{ duration: 0.8 }}
+              />
             </NavLink>
           </motion.div>
         </div>
@@ -273,39 +300,70 @@ const Navbar = () => {
                   className={`
                     text-sm px-6 py-3 rounded-full focus:ring-2 focus:ring-offset-2 relative overflow-hidden group
                     ${isConnected 
-                      ? 'bg-gradient-to-br from-green-600 via-emerald-500 to-green-600 hover:shadow-xl hover:shadow-emerald-500/30' 
-                      : 'bg-gradient-to-br from-purple-600 via-blue-600 to-purple-600 hover:shadow-xl hover:shadow-purple-500/30'}
-                    text-white transition-all duration-500 border border-white/10
+                      ? 'bg-gradient-to-br from-green-600 via-emerald-500 to-green-600 hover:shadow-xl hover:shadow-emerald-500/40 border-2 border-emerald-400/30 hover:border-emerald-400/60' 
+                      : 'bg-gradient-to-br from-purple-600 via-blue-600 to-purple-600 hover:shadow-xl hover:shadow-purple-500/40 border-2 border-purple-400/30 hover:border-purple-400/60'}
+                    text-white transition-all duration-500 font-semibold
                   `}
                 >
-                  {/* Efecto de brillo animado */}
+                  {/* Fondo animado mejorado */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                    initial={{ x: "-100%" }}
-                    whileHover={{ x: "100%" }}
-                    transition={{ duration: 0.8 }}
+                    className={`absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                      isConnected 
+                        ? 'bg-gradient-to-br from-green-500/20 to-emerald-500/20' 
+                        : 'bg-gradient-to-br from-purple-500/20 to-blue-500/20'
+                    }`}
+                    whileHover={{ scale: 1.02 }}
                   />
                   
-                  {/* Partículas en el botón */}
-                  {[...Array(3)].map((_, i) => (
+                  {/* Efecto de brillo animado */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent rounded-full"
+                    initial={{ x: "-100%" }}
+                    whileHover={{ x: "100%" }}
+                    transition={{ duration: 1 }}
+                  />
+                  
+                  {/* Partículas mejoradas en el botón */}
+                  {[...Array(4)].map((_, i) => (
                     <motion.div
                       key={i}
-                      className="absolute w-1 h-1 bg-white/40 rounded-full"
+                      className={`absolute w-1.5 h-1.5 rounded-full ${
+                        isConnected ? 'bg-emerald-300/60' : 'bg-purple-300/60'
+                      }`}
                       style={{
-                        left: `${20 + i * 30}%`,
-                        top: `${30 + i * 20}%`
+                        left: `${15 + i * 25}%`,
+                        top: `${25 + i * 15}%`
                       }}
                       animate={{
                         scale: [0, 1, 0],
-                        opacity: [0, 1, 0]
+                        opacity: [0, 0.8, 0],
+                        y: [0, -5, 0]
                       }}
                       transition={{
-                        duration: 2,
+                        duration: 2.5,
                         repeat: Infinity,
-                        delay: i * 0.3
+                        delay: i * 0.4
                       }}
                     />
                   ))}
+                  
+                  {/* Anillo pulsante */}
+                  <motion.div
+                    className={`absolute inset-0 rounded-full border-2 opacity-0 group-hover:opacity-60 ${
+                      isConnected 
+                        ? 'border-emerald-300/50' 
+                        : 'border-purple-300/50'
+                    }`}
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0, 0.6, 0]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: 'easeInOut'
+                    }}
+                  />
                   
                   <span className="relative z-10">
                     {isConnecting ? 'Connecting...' : isConnected ? t('walletConnected') : t('connectWallet')}
